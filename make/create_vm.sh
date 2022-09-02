@@ -60,13 +60,13 @@ VDI_FULL_NAME="$VM_DIR/$VM_NAME/$VM_NAME.vdi"
 [[ -z "${VM_DIR}" ]] && echo "You must specify a path to the Virtual Box vms" && exit 1
 [[ -z "${VM_NAME}" ]] && echo "You must specify a name for the Virtual Box vm" && exit 1
 
-if [ ! -f $ARCH_ISO ]; then
+if [ ! -f "$ARCH_ISO" ]; then
 
 	1>&2 echo "The specified Arch iso, $ARCH_ISO, does not exist"
 	exit 1
 fi
 
-if [ ! -d $VM_DIR ]; then
+if [ ! -d "$VM_DIR" ]; then
 
 	1>&2 echo "The specified Virtual Box directory, $VM_DIR, does not exist"
 	exit 1

@@ -3,7 +3,7 @@
 BASEHOME = $(HOME)
 
 VM_NAME := "ArchLinux"
-VM_DIR   = "$(BASEHOME)/VirtualBox\ VMs"
+VM_DIR   = "$(BASEHOME)/VirtualBox VMs"
 ARCH_ISO = "./out/$(shell ls -Art out/ | tail -n 1)"
 
 all: iso vdi
@@ -17,7 +17,7 @@ clean:
 	rm -rf out/
 
 iso:
-	./make/gen_iso.sh --basehome "$(BASEHOME)"
+	./make/gen_iso.sh --basehome $(BASEHOME)
 
 vdi:
-	./make/create_vm.sh --iso "$(ARCH_ISO)" --vm-directory "$(VM_DIR)" --vm-name $(VM_NAME)
+	./make/create_vm.sh --iso $(ARCH_ISO) --vm-directory $(VM_DIR) --vm-name $(VM_NAME)
