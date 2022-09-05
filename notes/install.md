@@ -70,7 +70,7 @@ pacstrap /mnt base linux linux-firmware efibootmgr grub-bios grub-btrfs btrfs-pr
 # Generate the fstab
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Copy zshrc to root
+# Copy iso zshrc to root
 cp /etc/zsh/zshrc /mnt/root/.zshrc
 ```
 
