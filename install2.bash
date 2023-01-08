@@ -43,7 +43,7 @@ install_base() {
 
 	# Install Base System
 	reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-	pacstrap /mnt base linux linux-firmware grub efibootmgr vim zsh
+	pacstrap /mnt base linux linux-firmware grub efibootmgr dhcpcd zsh
 
 	# Generate the fstab
 	genfstab -U /mnt >> /mnt/etc/fstab
@@ -78,7 +78,11 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Set root password and exit
+chsh -s /bin/zsh
 echo "root:asdf" | chpasswd
+
+systemctl enable dhcpcd.service
+
 exit
 EOF
 
@@ -104,4 +108,4 @@ install_base >install_base.log 3>&2 2>&1
 echo "Chrooting into new system"
 chroot >chroot.log 3>&2 2>&1
 
-finish >finish.log 3>&2 2>&1
+finish
