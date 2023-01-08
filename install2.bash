@@ -79,6 +79,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Set root password and exit
 echo "root:asdf" | chpasswd
+exit
 EOF
 
 }
