@@ -92,8 +92,6 @@ finish() {
 
 	umount -R /mnt
 	swapoff /dev/sda2
-	read -n1 -rsp $'Press any key to reboot or Ctrl+C to stay in the installation shell...\n' < /dev/tty
-	reboot
 }
 
 echo "Preparing to install Arch Linux"
